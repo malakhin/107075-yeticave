@@ -1,7 +1,7 @@
 # Личный проект «YetiCave» 
 
 * Студент: [Роман Малахин](https://up.htmlacademy.ru/php/3/user/107075).
-* Наставник: `Неизвестно`.
+* Наставник: [Павел Кузнецов](https://htmlacademy.ru/profile/id417075).
 
 ---
 
