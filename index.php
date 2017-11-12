@@ -17,7 +17,9 @@ $tomorrow = strtotime('tomorrow midnight');
 $now = strtotime('now');
 
 // далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
-$lot_time_remaining = gmdate("H:i:s", $tomorrow - $now);
+$lot_time_remaining = gmdate("H:i", $tomorrow -$now);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -40,6 +42,10 @@ $lot_time_remaining = gmdate("H:i:s", $tomorrow - $now);
             <input class="main-header__search-btn" type="submit" name="find" value="Найти">
         </form>
         <a class="main-header__add-lot button" href="add-lot.html">Добавить лот</a>
+        
+        <div><?= $tomorrow; ?></div>
+        <div><?= $now; ?></div>
+        
 
         <nav class="user-menu">
         
