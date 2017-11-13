@@ -4,29 +4,30 @@ $is_auth = (bool) rand(0, 1);
 $user_name = 'Константин';
 $user_avatar = 'img/user.jpg';
 
-    // устанавливаем часовой пояс в Московское время
-    date_default_timezone_set('Europe/Moscow');
-    // временная метка для полночи следующего дня
-    $tomorrow = strtotime('tomorrow midnight');
-    // временная метка для настоящего времени
-    $now = strtotime('now');
+// устанавливаем часовой пояс в Московское время
+date_default_timezone_set('Europe/Moscow');
 
-    // вычисляем разницу во времени
-    $diff_seconds = $tomorrow - $now;
-    
-    // переводим разницу в дни
-    $diff_days = $diff_seconds / 86400;
+// записать в эту переменную оставшееся время в этом формате (ЧЧ:ММ)
+$lot_time_remaining = "00:00";
 
-    // далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
-    $diff_days = 24 * ($diff_days - $days);
-    $hours = floor($diff_days);  
-    $diff_days = 60 * ($diff_days - $hours); 
-    $minutes = floor($diff_days); 
+// временная метка для полночи следующего дня
+$tomorrow = strtotime('tomorrow midnight');
 
-   $lot_time_remaining = $hours . ":" . $minutes;
+// временная метка для настоящего времени
+$now = strtotime('now');
 
+// вычисляем разницу во времени
+$diff_seconds = $tomorrow - $now;
 
+$diff_days = 24 * ($diff_seconds / 86400);
+
+$hours = floor($diff_days);  
+$diff_days = 60 * ($diff_days - $hours); 
+$minutes = floor($diff_days); 
+
+$lot_time_remaining = $hours . ":" . $minutes;
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -48,7 +49,7 @@ $user_avatar = 'img/user.jpg';
             <input class="main-header__search-btn" type="submit" name="find" value="Найти">
         </form>
         <a class="main-header__add-lot button" href="add-lot.html">Добавить лот</a>
-    
+
         <nav class="user-menu">
         
             <?php if($is_auth): ?>
