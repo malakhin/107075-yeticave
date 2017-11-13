@@ -17,13 +17,10 @@ $tomorrow = strtotime('tomorrow midnight');
 $now = strtotime('now');
 
 // вычисляем разницу во времени
-$diff_seconds = $tomorrow - $now;
+$remaining_seconds = $tomorrow - $now;
 
-$diff_days = 24 * ($diff_seconds / 86400);
-
-$hours = floor($diff_days);  
-$diff_days = 60 * ($diff_days - $hours); 
-$minutes = floor($diff_days); 
+$minutes = floor(($remaining_seconds % 3600) / 60);
+$hours = floor(($remaining_seconds % 86400) / 3600);
 
 $lot_time_remaining = $hours . ":" . $minutes;
 ?>
